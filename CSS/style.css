@@ -1,0 +1,34 @@
+*{
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+    overflow: hidden;
+}
+#container{
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-image: url('../images/background.png');
+    background-repeat: no-repeat;
+    background-size: cover; 
+    background-position-y: -150px;
+    position: relative;
+}
+
+#mario{
+    height: 100px;
+    width: 100px;
+    display: inline-block;
+    bottom: 60px;
+    background-image: url('../images/mario1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+}
+#playButton{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 45%;
+    left: 45%;
+}
