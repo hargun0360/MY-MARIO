@@ -32,3 +32,17 @@
     top: 45%;
     left: 45%;
 }
+
+#bird{
+
+    height: 50px;
+    width: 50px;
+    display: inline-block;
+    bottom: 80px;
+    background-image: url('../images/bird1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 1300px;
+
+}

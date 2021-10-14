@@ -1,4 +1,28 @@
 function play() {
+
+    var m=0;
+    var x=document.getElementById('bird');
+    x.style.bottom=((Math.random()*60 + 60)) + "px";
+    
+    setInterval(function enemy(){
+        var bird=['images/bird1.png','images/bird2.png'];
+       
+       
+        if(x.offsetLeft<=0){
+            x.style.left=1300 + "px";
+            x.style.bottom=((Math.random()*60 + 100)) + "px";
+        }
+        else{
+            x.style.left=x.offsetLeft-30 + "px";
+            x.style.backgroundImage='url(' +  bird[m] + ')';
+            m++;
+            if(m==2){
+                m=0;
+            }
+
+        }
+    },100);
+
     document.getElementById("playButton").style.visibility = "hidden";
     var i = 0;
     const pos = 20;
@@ -52,11 +76,11 @@ function play() {
 
             }
 
-            
-            
-          
         }
      })
+
+     
+
 
     
 }
