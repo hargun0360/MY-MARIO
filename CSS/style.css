@@ -17,7 +17,7 @@
 
 #mario{
     height: 100px;
-    width: 100px;
+    width: 70px;
     display: inline-block;
     bottom: 60px;
     background-image: url('../images/mario1.png');
@@ -35,8 +35,8 @@
 
 #bird{
 
-    height: 50px;
-    width: 50px;
+    height: 49px;
+    width: 49px;
     display: inline-block;
     bottom: 80px;
     background-image: url('../images/bird1.png');

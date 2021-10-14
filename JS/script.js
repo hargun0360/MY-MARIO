@@ -34,10 +34,10 @@ function play() {
 
     window.addEventListener('keydown', function (event) {
         if (event.key === "ArrowRight") {
-            mario.style.transform="scale(1.0)";
+            mario.style.height="100px";
             flag=1;
              var img = ['images/mario2.png', 'images/mario3.png', 'images/mario4.png'];
-            if (mario.offsetLeft < (window.innerWidth - 100)) {
+            if (mario.offsetLeft < (window.innerWidth - 60)) {
                 mario.style.left = mario.offsetLeft + pos + "px";
                 if (i == 3) {
                     i = 0;
@@ -55,13 +55,12 @@ function play() {
              
             if (flag==1) {
                 mario.style.backgroundImage = 'url(images/downr.png)';
-                mario.style.transform="scale(0.8)";
-                mario.style.bottom="50px";
+                mario.style.height="60px";
             }
             else if(flag==0){
                 mario.style.backgroundImage = 'url(images/downl.png)';
-                mario.style.transform="scale(0.8)";
-                mario.style.bottom="50px";
+                mario.style.height="60px";
+                mario.style.bottom="60px";
             }
         }
     })
@@ -75,12 +74,12 @@ function play() {
              
             if (flag==1) {
                 mario.style.backgroundImage = 'url(images/mario1.png)';
-                mario.style.transform="scale(1.0)";
+                mario.style.height="100px";
                 mario.style.bottom="60px";
             }
             else if(flag==0){
                 mario.style.backgroundImage = 'url(images/mario5.png)';
-                mario.style.transform="scale(1.0)";
+                mario.style.height="100px";
                 mario.style.bottom="60px";
             }
         }
@@ -90,7 +89,7 @@ function play() {
         
         if (event.key === "ArrowLeft") {
             flag=0;
-            mario.style.transform="scale(1.0)";
+            mario.style.height="100px";
             var image = ['images/mario5.png', 'images/mario6.png', 'images/mario7.png', 'images/mario8.png'];
             if (mario.offsetLeft > 0) {
                 mario.style.left = mario.offsetLeft - pos + "px";
@@ -107,7 +106,7 @@ function play() {
         
 
         if(event.key===" "){
-            mario.style.transform="scale(1.0)";
+            mario.style.height="100px";
 
             
             if(flag==1){
