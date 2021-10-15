@@ -12,6 +12,7 @@ function play() {
     var t=0;
     var c = document.getElementById('coin');
     var o=0;
+    var e=document.getElementById('bird2');
     
     var timer=setInterval(function enemy(){
         var bird=['images/bird1.png','images/bird2.png'];
@@ -32,10 +33,31 @@ function play() {
         }
     },100);
 
+    var timers=setInterval(function enemy(){
+        var bird=['images/bird1.png','images/bird2.png'];
+       
+       
+        if(e.offsetLeft<=0){
+            e.style.left=1700 + "px";
+            e.style.bottom=((Math.random()*60 + 100)) + "px";
+        }
+        else{
+            e.style.left=e.offsetLeft-30 + "px";
+            e.style.backgroundImage='url(' +  bird[m] + ')';
+            m++;
+            if(m==2){
+                m=0;
+            }
+
+        }
+    },100);
+
 
     setTimeout(function stop(){
 
         clearInterval(timer);
+        clearInterval(timers);
+        e.style.visibility="hidden";
         x.style.visibility="hidden";
 
     },60000);
@@ -149,7 +171,7 @@ function play() {
         f();
         c.style.bottom = (Math.random()*120 + 200) + "px";
         c.style.left = (Math.random()*1200 + 50) + "px";
-        }, 5000);
+        }, 3000);
     
 
     function f(){
