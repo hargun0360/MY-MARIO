@@ -26,15 +26,21 @@ function play() {
             x.style.bottom=((Math.random()*60 + 100)) + "px";
         }
         else{
-            x.style.left=x.offsetLeft-30 + "px";
+            if((x.offsetLeft>=mario.offsetLeft && x.offsetLeft <= mario.offsetLeft + 70)
+        &&(x.offsetTop+49>=mario.offsetTop && x.offsetTop<=mario.offsetTop + 100)){
+            alert("bird hit");
+       
+       }
+            x.style.left=x.offsetLeft-10 + "px";
             x.style.backgroundImage='url(' +  bird[m] + ')';
             m++;
             if(m==2){
                 m=0;
             }
+            
 
         }
-    },100);
+    },60);
 
     var timers=setInterval(function enemy(){
         var bird=['images/bird1.png','images/bird2.png'];
@@ -45,7 +51,12 @@ function play() {
             e.style.bottom=((Math.random()*60 + 100)) + "px";
         }
         else{
-            e.style.left=e.offsetLeft-30 + "px";
+            if((e.offsetLeft>=mario.offsetLeft && e.offsetLeft <= mario.offsetLeft + 70)
+        &&((e.offsetTop+49)>=mario.offsetTop && e.offsetTop<=mario.offsetTop + 100)){
+            alert("bird hit");
+       
+       }
+            e.style.left=e.offsetLeft-10 + "px";
             e.style.backgroundImage='url(' +  bird[m] + ')';
             m++;
             if(m==2){
@@ -53,7 +64,7 @@ function play() {
             }
 
         }
-    },100);
+    },60);
 
 
     setTimeout(function stop(){
@@ -139,7 +150,7 @@ function play() {
 
     window.addEventListener('keydown',function(event){
         
-
+       
         if(event.key===" "){
             mario.style.height="100px";
 
@@ -155,6 +166,8 @@ function play() {
             }
             if(mario.offsetTop>=465){
                 mario.style.bottom=280 + "px";
+                
+               
 
                 setTimeout(function jump(){
 
@@ -165,6 +178,7 @@ function play() {
 
             }
 
+           
         }
      })
 
@@ -172,8 +186,9 @@ function play() {
     f();
     setInterval(() => {
         f();
-        c.style.bottom = (Math.random()*120 + 200) + "px";
+        c.style.bottom = Math.floor(Math.random() * 100 ) + 200;
         c.style.left = (Math.random()*1200 + 50) + "px";
+        c.style.visibility="visible";
         }, 3000);
     
 
@@ -188,6 +203,11 @@ function play() {
         
         c.style.backgroundImage='url(' + co[o] + ')';
         o++;
+        if((c.offsetLeft>=mario.offsetLeft && c.offsetLeft <= mario.offsetLeft + 70)
+        &&(c.offsetTop>=mario.offsetTop && c.offsetTop<=mario.offsetTop + 100)){
+           c.style.visibility="hidden";
+       
+       }
     }
 
     setTimeout(() => {
@@ -204,8 +224,9 @@ function play() {
 setTimeout(() => {
 
     Drag();
+    fire.style.visibility="visible";
     
-}, 1000);
+}, 60000);
 
 function Drag(){
 
@@ -239,7 +260,7 @@ function Drag(){
 setInterval(function trigger(){
     fire.style.left = d.offsetLeft + "px";
     fire.style.top = d.offsetTop + "px";
-    fire.style.visibility="visible";
+    
 
     var s = setInterval(() => {
 
@@ -256,3 +277,7 @@ setInterval(function trigger(){
 },4000);
     
 }
+
+
+// --------------COLLISION LOGIC---------------------------------------------
+
