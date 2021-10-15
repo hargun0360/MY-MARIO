@@ -73,3 +73,16 @@
     left: 1700px;
 
 }
+#dragon{
+
+    height: 120px;
+    width: 120px;
+    display: inline-block;
+    bottom: 55px;
+    background-image: url('../images/dragon1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 1500px;
+
+}

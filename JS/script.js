@@ -13,6 +13,8 @@ function play() {
     var c = document.getElementById('coin');
     var o=0;
     var e=document.getElementById('bird2');
+    var d=document.getElementById('dragon');
+    var h=0,n=0;
     
     var timer=setInterval(function enemy(){
         var bird=['images/bird1.png','images/bird2.png'];
@@ -151,7 +153,7 @@ function play() {
 
             }
             if(mario.offsetTop>=465){
-                mario.style.bottom=250 + "px";
+                mario.style.bottom=280 + "px";
 
                 setTimeout(function jump(){
 
@@ -196,6 +198,42 @@ function play() {
 // -------------------------------------------------------------
 
 
+//Dragon -------------------------------------------------------
+
+setTimeout(() => {
+
+    Drag();
+    
+}, 1000);
+
+function Drag(){
+
+    setInterval(function dragonanimate(){
+
+        var dragonn=['images/dragon2.png','images/dragon3.png','images/dragon4.png','images/dragon1.png'];
+        if(h==4){
+            h=0;
+        }
+        else{
+            d.style.backgroundImage='url(' + dragonn[h] + ')';
+            h++;
+            if(d.offsetLeft>600 && n==0){
+                d.style.left=(d.offsetLeft - 20) + "px";
+            }
+            if(d.offsetLeft==600){
+               n=1;
+            }
+            if(n==1 && d.offsetLeft<window.innerWidth){
+                d.style.left=(d.offsetLeft + 20) + "px";
+            }
+            if(d.offsetLeft>=(window.innerWidth-300)){
+                n=0;
+            }
+            
+
+        }
+    },55);
+}
 
 
     
