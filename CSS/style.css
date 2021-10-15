@@ -46,3 +46,16 @@
     left: 1300px;
 
 }
+
+#coin{
+
+    height: 40px;
+    width: 40px;
+    display: inline-block;
+    bottom: 250px;
+    background-image: url('../images/coin1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 600px;
+}

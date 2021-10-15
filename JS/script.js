@@ -4,8 +4,16 @@ function play() {
     var x=document.getElementById('bird');
     x.style.bottom=((Math.random()*60 + 60)) + "px";
     var flag=1;
+    document.getElementById("playButton").style.visibility = "hidden";
+    var i = 0;
+    const pos = 20;
+    var k = 0;
+    var mario = document.getElementById('mario');
+    var t=0;
+    var c = document.getElementById('coin');
+    var o=0;
     
-    setInterval(function enemy(){
+    var timer=setInterval(function enemy(){
         var bird=['images/bird1.png','images/bird2.png'];
        
        
@@ -24,15 +32,18 @@ function play() {
         }
     },100);
 
-    document.getElementById("playButton").style.visibility = "hidden";
-    var i = 0;
-    const pos = 20;
-    var k = 0;
-    var mario = document.getElementById('mario');
-    var t=0;
+
+    setTimeout(function stop(){
+
+        clearInterval(timer);
+        x.style.visibility="hidden";
+
+    },60000);
+
+     // keys control--------------------------------------------
 
 
-    window.addEventListener('keydown', function (event) {
+     window.addEventListener('keydown', function (event) {
         if (event.key === "ArrowRight") {
             mario.style.height="100px";
             flag=1;
@@ -48,6 +59,7 @@ function play() {
         }
     })
 
+   
     window.addEventListener('keydown', function (event) {
         if (event.key === "ArrowDown") {
 
@@ -64,8 +76,6 @@ function play() {
             }
         }
     })
-
-
 
     window.addEventListener('keydown', function (event) {
         if (event.key === "ArrowUp") {
@@ -133,7 +143,37 @@ function play() {
         }
      })
 
-     
+    // -----------coin logic------------------------------- 
+    f();
+    setInterval(() => {
+        f();
+        c.style.bottom = (Math.random()*120 + 200) + "px";
+        c.style.left = (Math.random()*1200 + 50) + "px";
+        }, 5000);
+    
+
+    function f(){
+    var coi = setInterval(function coinanimate(){
+
+    var co=['images/coin2.png','images/coin3.png','images/coin4.png','images/coin5.png','images/coin6.png','images/coin1.png'];
+    if(o==6){
+        o=0;
+    }
+    else{
+        
+        c.style.backgroundImage='url(' + co[o] + ')';
+        o++;
+    }
+
+    setTimeout(() => {
+        clearInterval(coi);
+    }, 5000);
+},100);
+
+}
+// -------------------------------------------------------------
+
+
 
 
     
