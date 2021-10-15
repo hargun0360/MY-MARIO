@@ -15,6 +15,7 @@ function play() {
     var e=document.getElementById('bird2');
     var d=document.getElementById('dragon');
     var h=0,n=0;
+    var fire=document.getElementById('fire');
     
     var timer=setInterval(function enemy(){
         var bird=['images/bird1.png','images/bird2.png'];
@@ -235,6 +236,23 @@ function Drag(){
     },55);
 }
 
+setInterval(function trigger(){
+    fire.style.left = d.offsetLeft + "px";
+    fire.style.top = d.offsetTop + "px";
+    fire.style.visibility="visible";
 
+    var s = setInterval(() => {
+
+            fire.style.left=(fire.offsetLeft-10) + "px"; 
+        if(fire.offsetLeft<=-60){
+            
+            clearInterval(s);
+        }
+        
+    }, 20);
+
+    
+
+},4000);
     
 }

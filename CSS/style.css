@@ -86,3 +86,17 @@
     left: 1500px;
 
 }
+
+#fire{
+
+    height: 60px;
+    width: 60px;
+    display: inline-block;
+    bottom: 100px;
+    background-image: url('../images/fire.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    position: absolute;
+    left: 1300px;
+    visibility: hidden;
+}
