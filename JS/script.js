@@ -1,16 +1,19 @@
 function play() {
 
+    var out=1;
     var m=0;
+    var mario = document.getElementById('mario');
     var x=document.getElementById('bird');
     x.style.bottom=((Math.random()*60 + 60)) + "px";
     var flag=1;
-    
+
+
     setInterval(function enemy(){
         var bird=['images/bird1.png','images/bird2.png'];
        
        
         if(x.offsetLeft<=0){
-            x.style.left=1300 + "px";
+            x.style.left=window.innerWidth + "px";
             x.style.bottom=((Math.random()*60 + 100)) + "px";
         }
         else{
@@ -20,7 +23,7 @@ function play() {
             if(m==2){
                 m=0;
             }
-
+        
         }
     },100);
 
@@ -28,7 +31,6 @@ function play() {
     var i = 0;
     const pos = 20;
     var k = 0;
-    var mario = document.getElementById('mario');
     var t=0;
 
 
@@ -46,10 +48,8 @@ function play() {
                 i++;
             }
         }
-    })
 
-    window.addEventListener('keydown', function (event) {
-        if (event.key === "ArrowDown") {
+       else if (event.key === "ArrowDown") {
 
             
              
@@ -63,12 +63,8 @@ function play() {
                 mario.style.bottom="60px";
             }
         }
-    })
 
-
-
-    window.addEventListener('keydown', function (event) {
-        if (event.key === "ArrowUp") {
+       else if (event.key === "ArrowUp") {
 
             
              
@@ -83,11 +79,9 @@ function play() {
                 mario.style.bottom="60px";
             }
         }
-    })
 
-    window.addEventListener('keydown', function (event) {
         
-        if (event.key === "ArrowLeft") {
+       else if (event.key === "ArrowLeft") {
             flag=0;
             mario.style.height="100px";
             var image = ['images/mario5.png', 'images/mario6.png', 'images/mario7.png', 'images/mario8.png'];
@@ -100,12 +94,10 @@ function play() {
                 k++;
             }
         }
-    })
 
-    window.addEventListener('keydown',function(event){
         
 
-        if(event.key===" "){
+       else if(event.key===" "){
             mario.style.height="100px";
 
             
@@ -131,10 +123,31 @@ function play() {
             }
 
         }
+        
+        var coll=setInterval(()=>{
+
+        var mar=mario.getBoundingClientRect();
+        var ene=bird.getBoundingClientRect();
+        // console.log(mar,ene);
+        if(mar.x > ene.x + ene.width ||
+            mar.x + mar.width < ene.x ||
+            mar.y > ene.y + ene.height ||
+            mar.y + mar.height < ene.y){
+                
+               
+            }
+        else{
+            out=0;
+            console.log(out)
+            clearInterval(coll);
+        }
+    });
+
+   
      })
-
      
-
+     if(out==0)
+     return;
 
     
 }
