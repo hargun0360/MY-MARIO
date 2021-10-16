@@ -1,4 +1,4 @@
-function play() {
+function start() {
 
     var score=0;
     var m=0;
@@ -24,6 +24,16 @@ function play() {
     var coined=document.getElementById('coined');
     var come=document.getElementById('come');
     var sc=document.getElementById('sc');
+    var over=document.getElementById('over');
+    var scr=document.getElementById('scr');
+    var scoree=document.getElementById('scoree');
+    var scrr=document.getElementById('scrr');
+
+    mario.style.visibility="visible";
+    c.style.visibility="visible";
+    x.style.visibility="visible";
+    e.style.visibility="visible";
+    sc.style.visibility="visible";
 
     theme.play();
     
@@ -39,6 +49,7 @@ function play() {
             if((mario.offsetLeft<x.offsetLeft + 35 && mario.offsetLeft + 40 > x.offsetLeft)
         &&(mario.offsetTop<x.offsetTop + 30 && mario.offsetTop+50 >x.offsetTop)){
              collide.play();
+             gameover();
             
        
        }
@@ -72,6 +83,7 @@ function play() {
             if((mario.offsetLeft<e.offsetLeft + 35 && mario.offsetLeft + 40 > e.offsetLeft)
         &&(mario.offsetTop<e.offsetTop + 30 && mario.offsetTop+50 >e.offsetTop)){
              collide.play();
+             gameover();
        
        }
            
@@ -220,7 +232,7 @@ function play() {
             c.style.display="none";
             coined.play();
             score=score+10;
-            sc.innerHTML=score;
+            scr.innerHTML=score;
        }
     }
 
@@ -250,6 +262,7 @@ setTimeout(() => {
                 if((mario.offsetLeft<fire.offsetLeft + 55 && mario.offsetLeft + 35>=fire.offsetLeft) 
                 && (mario.offsetTop<fire.offsetTop+25 && mario.offsetTop + 70 >=fire.offsetTop)){
                     collide.play();
+                    gameover();
                 }
             if(fire.offsetLeft<=-60){
                 
@@ -278,6 +291,7 @@ function Drag(){
             if((mario.offsetLeft<d.offsetLeft + 100 && mario.offsetLeft + 53>=d.offsetLeft) 
             && (mario.offsetTop<d.offsetTop+120 && mario.offsetTop + 70 >=d.offsetTop)){
                 collide.play();
+                gameover();
             }
             if(d.offsetLeft>600 && n==0){
                 d.style.left=(d.offsetLeft - 20) + "px";
@@ -305,7 +319,27 @@ function Drag(){
     },55);
 }
 
+function gameover(){
+    
+    over.style.visibility="visible";
+    c.style.visibility="hidden";
+    mario.style.visibility="hidden";
+    sc.style.visibility="hidden";
+    d.style.visibility="hidden";
+    x.style.visibility="hidden";
+    e.style.visibility="hidden";
+    fire.style.visibility="hidden";
+    scrr.innerHTML=score;
+    scoree.style.visibility="visible";
+    
+    setTimeout(() => {
 
+        location.reload();
+        
+    }, 3000);
+   
+
+}
     
 }
 

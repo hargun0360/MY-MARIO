@@ -24,13 +24,19 @@
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
+    visibility: hidden;
 }
 #playButton{
-    width: 50px;
+    width: 100px;
     height: 50px;
     position: absolute;
     top: 45%;
     left: 45%;
+    border-radius: 10%;
+    border: 2px solid red ;
+    background-color: rgb(61, 218, 61);
+    font-size: 25px;
+    font-weight:bold;
 }
 
 #bird{
@@ -44,6 +50,7 @@
     background-size: contain;
     position: absolute;
     left: 1300px;
+    visibility: hidden;
 
 }
 
@@ -58,6 +65,7 @@
     background-size: contain;
     position: absolute;
     left: 600px;
+    visibility: hidden;
 }
 
 #bird2{
@@ -71,6 +79,7 @@
     background-size: contain;
     position: absolute;
     left: 1700px;
+    visibility: hidden;
 
 }
 #dragon{
@@ -84,6 +93,7 @@
     background-size: contain;
     position: absolute;
     left: 1500px;
+    
 
 }
 
@@ -101,9 +111,11 @@
     top:-200px;
 }
 
-#score{
+#sc{
 
-    display: inline-block;
+    
+    height: fit-content;
+    width: fit-content;
     position: absolute;
     left: 600px;
     top: 200px;
@@ -111,4 +123,40 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-style: normal;
     color: whitesmoke;
+    display: inline-block;
+    visibility: hidden;
 }
+
+#over{
+    display:inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(5, 3, 3);
+    visibility: hidden;
+    position: absolute;
+}
+
+#text{
+    position: absolute;
+    left: 380px;
+    top: 250px;
+    color: whitesmoke;
+    font-size: 6em;
+    font-family: cursive;
+    font-weight: 700;
+}
+
+#scoree{
+
+    display: inline-block;
+    position: absolute;
+    left: 600px;
+    top: 450px;
+    width: fit-content;
+    height: fit-content;
+    color: whitesmoke;
+    font-family: cursive;
+    font-size: 2em;
+    visibility: hidden;
+}
+
