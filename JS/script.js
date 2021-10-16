@@ -38,6 +38,17 @@ function start() {
     var speed=20;
     var firespeed=10;
     var dragonspeed=20;
+
+    setTimeout(() => {
+
+        come.play();
+        
+    }, 133000);
+    setTimeout(() => {
+
+        come.play();
+        
+    }, 207000);
     
 
     theme.play();
@@ -238,6 +249,17 @@ function start() {
             coined.play();
             score=score+10;
             scr.innerHTML=score;
+            if(score>120){
+                speed=25;
+                firespeed=15;
+            }
+            else if(score>130 && score<=200){
+                firespeed=20;
+            }
+            else if(score>200){
+                firespeed=25;
+                dragonspeed=25;
+            }
        }
     }
 
@@ -311,7 +333,7 @@ function Drag(){
                 n=0;
             }
 
-            if(mario.offsetLeft >(window.innerWidth-50)){
+            if(mario.offsetLeft >(window.innerWidth-200)){
                 come.pause();
                 won.play();
             }
@@ -345,17 +367,7 @@ function gameover(){
 
 }
 
-if(score>120){
-    speed=25;
-    firespeed=15;
-}
-else if(score>130 && score<=200){
-    firespeed=20;
-}
-else if(score>200){
-    firespeed=25;
-    dragonspeed=25;
-}
+
     
 }
 
