@@ -17,6 +17,14 @@ function play() {
     var d=document.getElementById('dragon');
     var h=0,n=0;
     var fire=document.getElementById('fire');
+    var theme=document.getElementById('theme');
+    var won=document.getElementById('won');
+    var collide=document.getElementById('collide');
+    var jumped=document.getElementById('jumped');
+    var coined=document.getElementById('coined');
+    var come=document.getElementById('come');
+
+    theme.play();
     
     var timer=setInterval(function enemy(){
         var bird=['images/bird1.png','images/bird2.png'];
@@ -29,7 +37,7 @@ function play() {
         else{
             if((mario.offsetLeft<x.offsetLeft + 35 && mario.offsetLeft + 40 > x.offsetLeft)
         &&(mario.offsetTop<x.offsetTop + 30 && mario.offsetTop+50 >x.offsetTop)){
-             alert("bird hit");
+             collide.play();
             
        
        }
@@ -62,7 +70,7 @@ function play() {
             }
             if((mario.offsetLeft<e.offsetLeft + 35 && mario.offsetLeft + 40 > e.offsetLeft)
         &&(mario.offsetTop<e.offsetTop + 30 && mario.offsetTop+50 >e.offsetTop)){
-             alert("bird hit");
+             collide.play();
        
        }
            
@@ -77,6 +85,9 @@ function play() {
         clearInterval(timers);
         e.style.visibility="hidden";
         x.style.visibility="hidden";
+        theme.pause();
+        come.play();
+        
 
     },60000);
 
@@ -97,10 +108,7 @@ function play() {
                 i++;
             }
         }
-    // })
-
-   
-    // window.addEventListener('keydown', function (event) {
+    
         if (event.key === "ArrowDown") {
 
             
@@ -115,9 +123,7 @@ function play() {
                 mario.style.bottom="60px";
             }
         }
-    // })
-
-    // window.addEventListener('keydown', function (event) {
+    
         if (event.key === "ArrowUp") {
 
             
@@ -133,9 +139,7 @@ function play() {
                 mario.style.bottom="60px";
             }
         }
-    // })
-
-    // window.addEventListener('keydown', function (event) {
+    
         
         if (event.key === "ArrowLeft") {
             flag=0;
@@ -150,13 +154,12 @@ function play() {
                 k++;
             }
         }
-    // })
-
-    // window.addEventListener('keydown',function(event){
+    
         
        
         if(event.key===" "){
             mario.style.height="100px";
+            jumped.play();
 
             
             if(flag==1){
@@ -177,6 +180,7 @@ function play() {
 
                     mario.style.bottom="60px";
                     mario.style.left=(mario.offsetLeft + 20) +"px";
+                    
 
                 },500);
                
@@ -191,7 +195,7 @@ function play() {
     f();
     setInterval(() => {
         f();
-        c.style.bottom = Math.floor(Math.random() * 100 ) + 100;
+        c.style.bottom = Math.floor(Math.random() * 100 ) + 80;
         c.style.left = (Math.random()*1200 + 50) + "px";
         c.style.visibility="visible";
         }, 3000);
@@ -211,7 +215,7 @@ function play() {
         if((c.offsetLeft>=mario.offsetLeft && c.offsetLeft <= mario.offsetLeft + 70)
         &&(c.offsetTop>=mario.offsetTop && c.offsetTop<=mario.offsetTop + 100)){
            c.style.visibility="hidden";
-            score+=1;
+            coined.play();
        }
     }
 
@@ -230,6 +234,28 @@ setTimeout(() => {
 
     Drag();
     fire.style.visibility="visible";
+    setInterval(function trigger(){
+        fire.style.left = d.offsetLeft + "px";
+        fire.style.top = (d.offsetTop + 10) + "px";
+        
+    
+        var s = setInterval(() => {
+    
+                fire.style.left=(fire.offsetLeft-10) + "px"; 
+                if((mario.offsetLeft<fire.offsetLeft + 55 && mario.offsetLeft + 35>=fire.offsetLeft) 
+                && (mario.offsetTop<fire.offsetTop+25 && mario.offsetTop + 70 >=fire.offsetTop)){
+                    collide.play();
+                }
+            if(fire.offsetLeft<=-60){
+                
+                clearInterval(s);
+            }
+            
+        }, 20);
+    
+        
+    
+    },4000);
     
 }, 60000);
 
@@ -246,7 +272,7 @@ function Drag(){
             h++;
             if((mario.offsetLeft<d.offsetLeft + 100 && mario.offsetLeft + 53>=d.offsetLeft) 
             && (mario.offsetTop<d.offsetTop+120 && mario.offsetTop + 70 >=d.offsetTop)){
-                alert("dragon hit");
+                collide.play();
             }
             if(d.offsetLeft>600 && n==0){
                 d.style.left=(d.offsetLeft - 20) + "px";
@@ -261,30 +287,20 @@ function Drag(){
                 n=0;
             }
 
+            if(mario.offsetLeft >(window.innerWidth-50)){
+                come.pause();
+                won.play();
+
+            }
+
         }
+        
 
 
     },55);
 }
 
-setInterval(function trigger(){
-    fire.style.left = d.offsetLeft + "px";
-    fire.style.top = d.offsetTop + "px";
-    
 
-    var s = setInterval(() => {
-
-            fire.style.left=(fire.offsetLeft-10) + "px"; 
-        if(fire.offsetLeft<=-60){
-            
-            clearInterval(s);
-        }
-        
-    }, 20);
-
-    
-
-},4000);
     
 }
 
