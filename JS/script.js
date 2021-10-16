@@ -1,5 +1,6 @@
 function play() {
 
+    var score=0;
     var m=0;
     var x=document.getElementById('bird');
     x.style.bottom=((Math.random()*60 + 60)) + "px";
@@ -28,7 +29,8 @@ function play() {
         else{
             if((x.offsetLeft>=mario.offsetLeft && x.offsetLeft <= mario.offsetLeft + 70)
         &&(x.offsetTop+49>=mario.offsetTop && x.offsetTop<=mario.offsetTop + 100)){
-            alert("bird hit");
+            // alert("bird hit");
+            score-=1;
        
        }
             x.style.left=x.offsetLeft-10 + "px";
@@ -53,7 +55,8 @@ function play() {
         else{
             if((e.offsetLeft>=mario.offsetLeft && e.offsetLeft <= mario.offsetLeft + 70)
         &&((e.offsetTop+49)>=mario.offsetTop && e.offsetTop<=mario.offsetTop + 100)){
-            alert("bird hit");
+            // alert("bird hit");
+            score-=1;
        
        }
             e.style.left=e.offsetLeft-10 + "px";
@@ -93,10 +96,10 @@ function play() {
                 i++;
             }
         }
-    })
+    // })
 
    
-    window.addEventListener('keydown', function (event) {
+    // window.addEventListener('keydown', function (event) {
         if (event.key === "ArrowDown") {
 
             
@@ -111,9 +114,9 @@ function play() {
                 mario.style.bottom="60px";
             }
         }
-    })
+    // })
 
-    window.addEventListener('keydown', function (event) {
+    // window.addEventListener('keydown', function (event) {
         if (event.key === "ArrowUp") {
 
             
@@ -129,9 +132,9 @@ function play() {
                 mario.style.bottom="60px";
             }
         }
-    })
+    // })
 
-    window.addEventListener('keydown', function (event) {
+    // window.addEventListener('keydown', function (event) {
         
         if (event.key === "ArrowLeft") {
             flag=0;
@@ -146,9 +149,9 @@ function play() {
                 k++;
             }
         }
-    })
+    // })
 
-    window.addEventListener('keydown',function(event){
+    // window.addEventListener('keydown',function(event){
         
        
         if(event.key===" "){
@@ -206,7 +209,7 @@ function play() {
         if((c.offsetLeft>=mario.offsetLeft && c.offsetLeft <= mario.offsetLeft + 70)
         &&(c.offsetTop>=mario.offsetTop && c.offsetTop<=mario.offsetTop + 100)){
            c.style.visibility="hidden";
-       
+            score+=1;
        }
     }
 
@@ -253,7 +256,19 @@ function Drag(){
             }
             
 
-        }
+        
+
+        //---------------------Collision with Dragon-----------------------------------------
+
+        if((d.offsetLeft>=mario.offsetLeft && d.offsetLeft <= mario.offsetLeft + 70)
+        &&(d.offsetTop>=mario.offsetTop && d.offsetTop<=mario.offsetTop + 100)
+        &&(d.offsetLeft+120>=mario.offsetLeft && d.offsetLeft<=mario.offsetLeft)
+        &&(d.offsetTop+120>=mario.offsetTop && d.offsetTop<=mario.offsetTop)){
+            alert(1,score);
+
+        }}
+
+
     },55);
 }
 
