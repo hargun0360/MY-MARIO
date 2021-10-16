@@ -34,6 +34,11 @@ function start() {
     x.style.visibility="visible";
     e.style.visibility="visible";
     sc.style.visibility="visible";
+    var option;
+    var speed=20;
+    var firespeed=10;
+    var dragonspeed=20;
+    
 
     theme.play();
     
@@ -53,7 +58,7 @@ function start() {
             
        
        }
-            x.style.left=x.offsetLeft-20 + "px";
+            x.style.left=x.offsetLeft-speed + "px";
             x.style.backgroundImage='url(' +  bird[m] + ')';
             m++;
             if(m==2){
@@ -74,7 +79,7 @@ function start() {
         }
         else{
 
-            e.style.left=e.offsetLeft-20 + "px";
+            e.style.left=e.offsetLeft-speed + "px";
             e.style.backgroundImage='url(' +  bird[m] + ')';
             m++;
             if(m==2){
@@ -258,7 +263,7 @@ setTimeout(() => {
     
         var s = setInterval(() => {
     
-                fire.style.left=(fire.offsetLeft-10) + "px"; 
+                fire.style.left=(fire.offsetLeft-firespeed) + "px"; 
                 if((mario.offsetLeft<fire.offsetLeft + 55 && mario.offsetLeft + 35>=fire.offsetLeft) 
                 && (mario.offsetTop<fire.offsetTop+25 && mario.offsetTop + 70 >=fire.offsetTop)){
                     collide.play();
@@ -294,13 +299,13 @@ function Drag(){
                 gameover();
             }
             if(d.offsetLeft>600 && n==0){
-                d.style.left=(d.offsetLeft - 20) + "px";
+                d.style.left=(d.offsetLeft - dragonspeed) + "px";
             }
             if(d.offsetLeft==600){
                n=1;
             }
             if(n==1 && d.offsetLeft<window.innerWidth){
-                d.style.left=(d.offsetLeft + 20) + "px";
+                d.style.left=(d.offsetLeft + dragonspeed) + "px";
             }
             if(d.offsetLeft>=(window.innerWidth-300)){
                 n=0;
@@ -309,7 +314,6 @@ function Drag(){
             if(mario.offsetLeft >(window.innerWidth-50)){
                 come.pause();
                 won.play();
-
             }
 
         }
@@ -336,11 +340,25 @@ function gameover(){
 
         location.reload();
         
-    }, 3000);
+    }, 2000);
    
 
 }
+
+if(score>120){
+    speed=25;
+    firespeed=15;
+}
+else if(score>130 && score<=200){
+    firespeed=20;
+}
+else if(score>200){
+    firespeed=25;
+    dragonspeed=25;
+}
     
 }
+
+
 
 
