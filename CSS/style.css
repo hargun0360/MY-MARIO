@@ -92,7 +92,6 @@
     height: 60px;
     width: 60px;
     display: inline-block;
-    /* bottom: 90px; */
     background-image: url('../images/fire.png');
     background-repeat: no-repeat;
     background-size: contain;
@@ -100,4 +99,16 @@
     left: 1300px;
     visibility:hidden;
     top:-200px;
+}
+
+#score{
+
+    display: inline-block;
+    position: absolute;
+    left: 600px;
+    top: 200px;
+    font-size: 2em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    color: whitesmoke;
 }

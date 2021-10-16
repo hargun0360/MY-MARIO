@@ -23,6 +23,7 @@ function play() {
     var jumped=document.getElementById('jumped');
     var coined=document.getElementById('coined');
     var come=document.getElementById('come');
+    var sc=document.getElementById('sc');
 
     theme.play();
     
@@ -197,7 +198,9 @@ function play() {
         f();
         c.style.bottom = Math.floor(Math.random() * 100 ) + 80;
         c.style.left = (Math.random()*1200 + 50) + "px";
-        c.style.visibility="visible";
+        c.style.width="40px";
+        c.style.height="40px";
+        c.style.display="inline-block";
         }, 3000);
     
 
@@ -214,8 +217,10 @@ function play() {
         o++;
         if((c.offsetLeft>=mario.offsetLeft && c.offsetLeft <= mario.offsetLeft + 70)
         &&(c.offsetTop>=mario.offsetTop && c.offsetTop<=mario.offsetTop + 100)){
-           c.style.visibility="hidden";
+            c.style.display="none";
             coined.play();
+            score=score+10;
+            sc.innerHTML=score;
        }
     }
 
