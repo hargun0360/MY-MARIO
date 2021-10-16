@@ -28,7 +28,7 @@ function play() {
         }
         else{
             if((mario.offsetLeft<x.offsetLeft + 35 && mario.offsetLeft + 40 > x.offsetLeft)
-        &&(mario.offsetTop<x.offsetTop + 35 && mario.offsetTop+60 >x.offsetTop)){
+        &&(mario.offsetTop<x.offsetTop + 30 && mario.offsetTop+50 >x.offsetTop)){
              alert("bird hit");
             
        
@@ -61,7 +61,7 @@ function play() {
                 m=0;
             }
             if((mario.offsetLeft<e.offsetLeft + 35 && mario.offsetLeft + 40 > e.offsetLeft)
-        &&(mario.offsetTop<e.offsetTop + 35 && mario.offsetTop+60 >e.offsetTop)){
+        &&(mario.offsetTop<e.offsetTop + 30 && mario.offsetTop+50 >e.offsetTop)){
              alert("bird hit");
        
        }
@@ -244,6 +244,10 @@ function Drag(){
         else{
             d.style.backgroundImage='url(' + dragonn[h] + ')';
             h++;
+            if((mario.offsetLeft<d.offsetLeft + 100 && mario.offsetLeft + 53>=d.offsetLeft) 
+            && (mario.offsetTop<d.offsetTop+120 && mario.offsetTop + 70 >=d.offsetTop)){
+                alert("dragon hit");
+            }
             if(d.offsetLeft>600 && n==0){
                 d.style.left=(d.offsetLeft - 20) + "px";
             }
@@ -256,19 +260,8 @@ function Drag(){
             if(d.offsetLeft>=(window.innerWidth-300)){
                 n=0;
             }
-            
 
-        
-
-        //---------------------Collision with Dragon-----------------------------------------
-
-        if((d.offsetLeft>=mario.offsetLeft && d.offsetLeft <= mario.offsetLeft + 70)
-        &&(d.offsetTop>=mario.offsetTop && d.offsetTop<=mario.offsetTop + 100)
-        &&(d.offsetLeft+120>=mario.offsetLeft && d.offsetLeft<=mario.offsetLeft)
-        &&(d.offsetTop+120>=mario.offsetTop && d.offsetTop<=mario.offsetTop)){
-            alert("dragon hit");
-
-        }}
+        }
 
 
     },55);
