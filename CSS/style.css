@@ -92,7 +92,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
-    left: 1600px;
+    left: 3000px;
     
 
 }
@@ -158,5 +158,25 @@
     font-family: cursive;
     font-size: 2em;
     visibility: hidden;
+}
+
+#win{
+    display:inline-block;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(5, 3, 3);
+    visibility: hidden;
+    position: absolute;
+}
+
+
+#you{
+    position: absolute;
+    left: 380px;
+    top: 250px;
+    color: whitesmoke;
+    font-size: 6em;
+    font-family: cursive;
+    font-weight: 700;
 }
 

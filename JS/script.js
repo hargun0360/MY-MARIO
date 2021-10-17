@@ -16,6 +16,9 @@ function start() {
     var e=document.getElementById('bird2');
     var d=document.getElementById('dragon');
     var h=0,n=0;
+    var speed=20;
+    var firespeed=10;
+    var dragonspeed=20;
     var fire=document.getElementById('fire');
     var theme=document.getElementById('theme');
     var won=document.getElementById('won');
@@ -28,27 +31,21 @@ function start() {
     var scr=document.getElementById('scr');
     var scoree=document.getElementById('scoree');
     var scrr=document.getElementById('scrr');
+    var win=document.getElementById('win');
 
     mario.style.visibility="visible";
     c.style.visibility="visible";
     x.style.visibility="visible";
     e.style.visibility="visible";
     sc.style.visibility="visible";
-    var option;
-    var speed=20;
-    var firespeed=10;
-    var dragonspeed=20;
+    
 
     setTimeout(() => {
 
         come.play();
         
-    }, 133000);
-    setTimeout(() => {
-
-        come.play();
-        
-    }, 207000);
+    }, 128000);
+    
     
 
     theme.play();
@@ -249,17 +246,7 @@ function start() {
             coined.play();
             score=score+10;
             scr.innerHTML=score;
-            if(score>120){
-                speed=25;
-                firespeed=15;
-            }
-            else if(score>130 && score<=200){
-                firespeed=20;
-            }
-            else if(score>200){
-                firespeed=25;
-                dragonspeed=25;
-            }
+            
        }
     }
 
@@ -333,16 +320,53 @@ function Drag(){
                 n=0;
             }
 
+            if(score==120){
+                firespeed=15;
+            }
+            else if(score>120 && score<=200){
+                firespeed=20;
+                speed=30;
+            }
+            else if(score>200){
+                firespeed=30;
+            }
+
             if(mario.offsetLeft >(window.innerWidth-200)){
                 come.pause();
                 won.play();
+                winner();
             }
+
+            
 
         }
         
 
 
     },55);
+}
+
+
+setTimeout(() => {
+
+    come.play();
+    
+}, 200000);
+
+function winner(){
+    
+    win.style.visibility="visible";
+    c.style.visibility="hidden";
+    mario.style.visibility="hidden";
+    sc.style.visibility="hidden";
+    d.style.visibility="hidden";
+    fire.style.visibility="hidden";
+    setTimeout(() => {
+
+        location.reload();
+        
+    }, 6000);
+
 }
 
 function gameover(){
